@@ -114,25 +114,41 @@ usuarios en un servidor de localización que puede ser utilizado para localizar
 
 9. Fijémonos en las tramas siguientes a la número 46:
 * ¿Se registra con éxito en el primer intento?
-no
+	No, pide autorizacion.
+
 * ¿Cómo sabemos si el registro se ha realizado correctamente o no?
-401
-* ¿Podrı́as identificar las diferencias entre el primer intento y el
-segundo de registro? (fı́jate en el tamaño de los paquetes y mira
+	Sabemos  que no se ha realizado correctamente porque nos llega un 401 Unauthorized
+	
+* ¿Podrı́as identificar las diferencias entre el primer intento y el segundo de registro? (fı́jate en el tamaño de los paquetes y mira
 a qué se debe el cambio)
+	En el primer REGISTER (paquete 46) tenemos un frame lenght = 523 bytes y en el segundo Register (paquete 51) de un frame lenght = 712 bytes.
+	Podemos ver que este segundo REGISTER es mayor ya que incluye la autorizacion necesaria para el registro.
+
 * ¿Cuánto es el valor del tiempo de expiración de la sesión? Indica
 las unidades.
+	Expires = 3600 segundos
 
-10. Una vez registrados, podemos efectuar una llamada. Vamos a probar
-con el servicio de eco de Ekiga que nos permite comprobar si nos
-hemos conectado correctamente. El servicio de eco tiene la dirección
-sip:500@ekiga.net. Veamos el INVITE de cerca.
+10. Una vez registrados, podemos efectuar una llamada. Vamos a probar con el servicio de eco de Ekiga que nos permite comprobar si nos hemos conectado correctamente. El servicio de eco tiene la dirección sip:500@ekiga.net. Veamos el INVITE de cerca.
 * ¿Puede verse el nombre del que efectúa la llamada, ası́ como su
 dirección SIP?
+	Si , podemos ver tanto el nombre como al direccion SIP:
+	From: "Gregorio Robles"(nombre) <sip:grex@ekiga.net>(direccion sip)
+	
 * ¿Qué es lo que contiene el cuerpo de la trama? ¿En qué formato/protocolo está?
+	El cuerpo de la trama (Message Body) tiene los parametros de inicializacion en formato SDP.
+
 * ¿Tiene éxito el primer intento? ¿Cómo lo sabes?
+	No, ya que no se recibe un 200 Ok.
+	REcibe el error 407 Proxy Authentication Required.
+	
 * ¿En qué se diferencia el segundo INVITE más abajo del primero?
 ¿A qué crees que se debe esto?
+	La diferemcia viene en el campo Proxy-Authorization, en el que en el
+	segundo INVITE incluye la autorizacion necesaria:
+	
+	Proxy-Authorization: Digest username="grex", realm="ekiga.net",
+	nonce="45a439f6ba5f681cd945fb7c40529fd1e0f28a81", uri="sip:500@ekiga.net",
+	algorithm=md5, response="9a5627c14a8a433bd308d2ec54777240"
 
 11. Una vez conectado, estudia el intercambio de tramas.
 * ¿Qué protocolo(s) se utiliza(n)? ¿Para qué sirven estos protocolos?
