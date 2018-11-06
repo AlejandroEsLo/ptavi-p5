@@ -152,11 +152,31 @@ dirección SIP?
 
 11. Una vez conectado, estudia el intercambio de tramas.
 * ¿Qué protocolo(s) se utiliza(n)? ¿Para qué sirven estos protocolos?
+	RTCP y RTP.
+	
+	RTCP : Es un protocolo de comunicación que proporciona información de
+	control que está asociado con un flujo de datos para una aplicación
+	multimedia (flujo RTP). 
+	
+	RTP : Es un protocolo de nivel de aplicación utilizado para la transmisión 		de información en tiempo real, como por ejemplo audio y vídeo en una
+	videoconferencia.
+
 * ¿Cuál es el tamaño de paquete de los mismos?
+	RTCP son 102 bytes y RTP 214 bytes.
+	
 * ¿Se utilizan bits de padding?
+	No, ya que este campo aparece como False.
+	..0. .... = Padding: False
+	 
 * ¿Cuál es la periodicidad de los paquetes (en origen; nota que la
 captura es en destino)?
+	La periodicidad en paquetes RTP es de 0.02 segundos.
+	
 * ¿Cuántos bits/segundo se envı́an?
+	
+	180-20 = 160 bytes
+	160/0.02 sg = 8000 bytes/sg => 64Kbps
+
 [Al terminar el ejercicio es recomendable hacer commit de los ficheros modificados]
 
 12. Vamos a ver más a fondo el intercambio RTP. En Telephony hay una
