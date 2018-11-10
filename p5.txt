@@ -182,13 +182,33 @@ captura es en destino)?
 12. Vamos a ver más a fondo el intercambio RTP. En Telephony hay una
 opción RTP. Empecemos mirando los flujos RTP.
 * ¿Cuántos flujos hay? ¿por qué?
+	Hay 2 flujos (1 audio, 1 video)
+
 * ¿Cuántos paquetes se pierden?
+	Ningun paquete se pierde.
+
 * ¿Cuál es el valor máximo del delta? ¿Y qué es lo que significa el
 valor de delta?
+	Flujo1: Max Delta 1290.44 ms @ 297
+
+	Flujo2: Max Delta 1290.48 ms @ 300
+
+	El Delta se refiere al retardo que sufre el paquete, desde que sale hasta 		que llega al destinatario.
+
 * ¿Cuáles son los valores de jitter (medio y máximo)? ¿Qué
 quiere decir eso? ¿Crees que estamos ante una conversación de
 calidad?
 
+	Flujo1: Max Jitter => 119.64 ms , Mean Jitter => 42.50 ms
+
+	Flujo2: Max Jitter => 183.10 ms , Mean Jitter => 153.24 ms
+
+	Se denomina jitter o fluctuación del retardo1​2​3​ a la variabilidad temporal 		durante el envío de señales digitales, una ligera desviación de la
+	exactitud de la señal de reloj.
+	
+	Con 500ms podemos decir que tendriamos buena calidad, con los valores que
+	tenemos estariamos dentro de este limite.
+	 
 13. Elige un paquete RTP de audio. Analiza el flujo de audio en Telephony
 -> RTP -> Stream Analysis.
 * ¿Cuánto valen el delta y el jitter para el primer paquete que
