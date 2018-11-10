@@ -128,7 +128,8 @@ a qué se debe el cambio)
 las unidades.
 	Expires = 3600 segundos
 
-10. Una vez registrados, podemos efectuar una llamada. Vamos a probar con el servicio de eco de Ekiga que nos permite comprobar si nos hemos conectado correctamente. El servicio de eco tiene la dirección sip:500@ekiga.net. Veamos el INVITE de cerca.
+10. Una vez registrados, podemos efectuar una llamada. Vamos a probar con el servicio de eco de Ekiga que nos permite comprobar
+si nos hemos conectado correctamente. El servicio de eco tiene la dirección sip:500@ekiga.net. Veamos el INVITE de cerca.
 * ¿Puede verse el nombre del que efectúa la llamada, ası́ como su
 dirección SIP?
 	Si , podemos ver tanto el nombre como al direccion SIP:
@@ -158,7 +159,7 @@ dirección SIP?
 	control que está asociado con un flujo de datos para una aplicación
 	multimedia (flujo RTP). 
 	
-	RTP : Es un protocolo de nivel de aplicación utilizado para la transmisión 		de información en tiempo real, como por ejemplo audio y vídeo en una
+	RTP : Es un protocolo de nivel de aplicación utilizado para la transmisión de información en tiempo real, como por ejemplo audio y vídeo en una
 	videoconferencia.
 
 * ¿Cuál es el tamaño de paquete de los mismos?
@@ -193,7 +194,7 @@ valor de delta?
 
 	Flujo2: Max Delta 1290.48 ms @ 300
 
-	El Delta se refiere al retardo que sufre el paquete, desde que sale hasta 		que llega al destinatario.
+	El Delta se refiere al retardo que sufre el paquete, desde que sale hasta que llega al destinatario.
 
 * ¿Cuáles son los valores de jitter (medio y máximo)? ¿Qué
 quiere decir eso? ¿Crees que estamos ante una conversación de
@@ -203,7 +204,7 @@ calidad?
 
 	Flujo2: Max Jitter => 183.10 ms , Mean Jitter => 153.24 ms
 
-	Se denomina jitter o fluctuación del retardo1​2​3​ a la variabilidad temporal 		durante el envío de señales digitales, una ligera desviación de la
+	Se denomina jitter o fluctuación del retardo1​2​3​ a la variabilidad temporal durante el envío de señales digitales, una ligera desviación de la
 	exactitud de la señal de reloj.
 	
 	Con 500ms podemos decir que tendriamos buena calidad, con los valores que
@@ -248,8 +249,13 @@ esa llamada y pulsa el botón Graph.
 
 15. Identifica la trama donde se finaliza la conversación.
 * ¿Qué método SIP se utiliza?
+	BYE
+
 * ¿En qué trama(s)?
+	En las tramas 924,925,927 y 933.
+
 * ¿Por qué crees que se envı́a varias veces?
+	Para saber que llega seguro, ya que usamos UDP y no es fiable.
 
 16. Finalmente, se cierra la aplicación de VozIP.
 * ¿Por qué aparece una instrucción SIP del tipo REGISTER?
