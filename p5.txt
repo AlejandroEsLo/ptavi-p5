@@ -259,8 +259,14 @@ esa llamada y pulsa el botón Graph.
 
 16. Finalmente, se cierra la aplicación de VozIP.
 * ¿Por qué aparece una instrucción SIP del tipo REGISTER?
+	Porque enviamos Expires = 0.
+
 * ¿En qué trama sucede esto?
+	En 950.
+
 * ¿En qué se diferencia con la instrucción que se utilizó con anterioridad (al principio de la sesión)?
+	En el principio de la sesion EXPIRES=3600 y al finalizar EXPIRES=0.
+
 [Al terminar el ejercicio es recomendable hacer commit de los ficheros modificados]
 
 Captura de una sesión SIP
