@@ -233,7 +233,18 @@ dado. ¿Cuál?
 llamada de voz IP capturada en una ventana emergente. Selecciona
 esa llamada y pulsa el botón Graph.
 * ¿Cuánto dura la conversación?
+
+	84	14.426793	192.168.1.34	ekiga.net	SIP/SDP	982	Request: INVITE sip:500@ekiga.net | 
+	941	39.229683	ekiga.net	192.168.1.34	SIP	581	Status: 200 OK | 
+
+	39.229683 - 14.426793 = 24.80289 sg dura la conversacion.
+
 * ¿Cuáles son sus SSRC? ¿Por qué hay varios SSRCs? ¿Hay CSRCs?
+	
+	Payload type: ITU-T H.261 (video) => Synchronization Source identifier: 0x43306582 (1127245186)
+	Payload type: ITU-T G.711 PCMA (audio) => Synchronization Source identifier: 0xbf4afd37 (3209362743)
+	Hay varios SSRC ya que tenemos un flujo de video y otro de audio.
+	No hay CSRs, porque el campo Contributing Source Identifiers Count = 0.
 
 15. Identifica la trama donde se finaliza la conversación.
 * ¿Qué método SIP se utiliza?
